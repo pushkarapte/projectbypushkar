@@ -1,4 +1,4 @@
-package com.Tsfdemo.controller;
+package com.tsfdemo.controller;
 
 import java.util.List;
 
@@ -11,31 +11,30 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.Tsfdemo.model.StudentModel;
-import com.Tsfdemo.repository.StudentRepo;
+import com.tsfdemo.model.StudentModel;
+import com.tsfdemo.repository.StudentRepo;
 
 @RestController
 @RequestMapping("/")
 public class StudentController {
 	
 StudentModel studModel;
-	
+
 @Autowired
 StudentRepo studRepo;
+
 
 
 @GetMapping("students")
 private List<StudentModel> getAll()
 {
-	return studRepo.findAll();
-	}
-	
-@PostMapping("addStudent")
-private StudentModel createStud(@valid @RequestBody StudentModel studM)
-{
-	return studRepo.save(studM);
+ return studRepo.findAll();	
 }
 	
-	
-}
 
+@PostMapping("addStudent")
+private StudentModel createStud(@Valid @RequestBody StudentModel studM)
+{
+  return studRepo.save(studM);	
+}
+}
